@@ -23,7 +23,6 @@ function Board({ xIsNext, squares, onPlay, xMoves, oMoves }) {
     let nextOMoves = [...oMoves];
 
     if (xIsNext) {
-      // X'in 4. hamlesi koyulacaksa ilk koyduğu hamle silinir
       if (nextXMoves.length === 3) {
         const oldestMove = nextXMoves.shift();
         nextSquares[oldestMove] = null;
@@ -31,7 +30,6 @@ function Board({ xIsNext, squares, onPlay, xMoves, oMoves }) {
       nextSquares[i] = "X";
       nextXMoves.push(i);
     } else {
-      // O'nun 4. hamlesi koyulacaksa ilk koyduğu hamle silinir
       if (nextOMoves.length === 3) {
         const oldestMove = nextOMoves.shift();
         nextSquares[oldestMove] = null;
@@ -70,8 +68,8 @@ function Board({ xIsNext, squares, onPlay, xMoves, oMoves }) {
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
-  const [xMoves, setXMoves] = useState([]); // X oyuncusunun hamleleri
-  const [oMoves, setOMoves] = useState([]); // O oyuncusunun hamleleri
+  const [xMoves, setXMoves] = useState([]); 
+  const [oMoves, setOMoves] = useState([]); 
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
